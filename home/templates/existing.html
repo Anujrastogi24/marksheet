@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Marksheet</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function()
+        {
+            $('tr').each(function()
+            {
+                var totalmarks=0;
+                $(this).find('.obmarks').each(function()
+                {
+                    var marks =$(this).text();
+                    if(marks.lenght!==0)
+                    {
+                        totalmarks+=parseFloat(marks);
+
+                    }
+
+
+                });
+                $(this).find('#totalMarks').html(totalmarks);
+            });
+        });
+    </script>
+
+    {% load static %}
+    <link rel = "stylesheet" href="{% static 'main.css' %}">
+</head>
+
+<body>
+   
+    <p>&nbsp;</p>
+    
+    <p align="center" class="MsoNormal" style="text-align: center;"><span lang="EN-US"
+            style="font-size: 22pt; line-height: 107%; mso-ansi-language: EN-US;">MARKSHEET<o:p></o:p></span></p>
+
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+
+    <table border="0" align="center" cellpadding="0" cellspacing="0" class="TableGrid" class="table">
+        <tbody>
+            {%for k in queryset %}
+            <tr class="tb-row-h">
+                <td style="border: solid black 1.0pt; height: 28.55pt; mso-border-alt: solid black .5pt; padding: 3.1pt 5.75pt 0cm 5.4pt; width: 91.85pt;"
+                    width="122">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <b style="mso-bidi-font-weight: normal;"><span
+                                style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">Name </span></b>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-left: none; border: solid black 1.0pt; height: 28.55pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; padding: 3.1pt 5.75pt 0cm 5.4pt; width: 184.3pt;"
+                    width="246">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">{{ k.name }}
+                        </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-left: none; border: solid black 1.0pt; height: 28.55pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; padding: 3.1pt 5.75pt 0cm 5.4pt; width: 61.9pt;"
+                    width="83">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <b style="mso-bidi-font-weight: normal;"><span
+                                style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">Roll No </span></b>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-left: none; border: solid black 1.0pt; height: 28.55pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; padding: 3.1pt 5.75pt 0cm 5.4pt; width: 112.75pt;"
+                    width="150">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">{{ k.roll }}
+                        </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+            </tr>
+            <tr class="tb-row-h">
+                <td style="border-top: none; border: solid black 1.0pt; height: 29.95pt; mso-border-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 3.1pt 5.75pt 0cm 5.4pt; width: 91.85pt;"
+                    width="122">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <b style="mso-bidi-font-weight: normal;"><span
+                                style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">Course </span></b>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; height: 29.95pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 3.1pt 5.75pt 0cm 5.4pt; width: 184.3pt;"
+                    width="246">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">{{ k.course }} </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; height: 29.95pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 3.1pt 5.75pt 0cm 5.4pt; width: 61.9pt;"
+                    width="83">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <b style="mso-bidi-font-weight: normal;"><span
+                                style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">Branch </span></b>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; height: 29.95pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 3.1pt 5.75pt 0cm 5.4pt; width: 112.75pt;"
+                    width="150">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">{{ k.branch}} </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+            </tr>
+            <tr class="tb-row-h">
+                <td style="border-top: none; border: solid black 1.0pt; height: 28.6pt; mso-border-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 3.1pt 5.75pt 0cm 5.4pt; width: 91.85pt;"
+                    valign="top" width="122">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <b style="mso-bidi-font-weight: normal;"><span
+                                style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">Parent's Name</span></b>
+                        <o:p></o:p>
+                    </p>
+                    
+                </td>
+                <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; height: 28.6pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 3.1pt 5.75pt 0cm 5.4pt; width: 184.3pt;"
+                    width="246">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">{{ k.parentName}}
+                        </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; height: 28.6pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 3.1pt 5.75pt 0cm 5.4pt; width: 61.9pt;"
+                    width="83">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;"><span
+                                style="mso-spacerun: yes;">&nbsp;</span></span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; height: 28.6pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 3.1pt 5.75pt 0cm 5.4pt; width: 112.75pt;"
+                    width="150">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;"><span
+                                style="mso-spacerun: yes;">&nbsp;</span></span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+
+    <table border="0" align="center" cellpadding="0" cellspacing="0" class="TableGrid" class="table">
+        <tbody>
+            {%for n in marksquery %}
+            <tr class="tb-row-h">
+                <td style="border-left: none; border: solid black 1.0pt; height: 28.1pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 227.0pt;"
+                    valign="top"  width="83">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <b style="mso-bidi-font-weight: normal;"><span
+                                style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">S.N. </span></b>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-left: none; border: solid black 1.0pt; height: 28.1pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 100.05pt;"
+                    valign="top" width="86">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <b style="mso-bidi-font-weight: normal;"><span
+                                style="font-size: 11.5pt; mso-bidi-font-size: 11.0pt;">Subject  code</span></b>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-left: none; border: solid black 1.0pt; height: 28.1pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 227.0pt;"
+                    valign="top" width="303">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <b style="mso-bidi-font-weight: normal;"><span
+                                style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">Subject Name </span></b>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-left: none; border: solid black 1.0pt; height: 28.1pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 100.05pt;"
+                    valign="top" width="86">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <b style="mso-bidi-font-weight: normal;"><span
+                                style="font-size: 18.8pt; mso-bidi-font-size: 11.0pt;">Marks Obtained</span></b>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-left: none; border: solid black 1.0pt; height: 28.1pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 100.05pt;"
+                    valign="top" width="86">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <b style="mso-bidi-font-weight: normal;"><span
+                                style="font-size: 18.8pt; mso-bidi-font-size: 11.0pt;">Maximum Marks</span></b>
+                        <o:p></o:p>
+                    </p>
+                </td>
+            </tr>
+            <tr class="tb-row" >
+                <td style="border-top: none; border: solid black 1.0pt; height: 23.15pt; mso-border-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 41.5pt;"
+                    valign="top" width="55">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">1
+                        </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; height: 23.15pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 54.1pt;"
+                    valign="top" width="72">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">{{n.subject1}}
+                        </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; height: 23.15pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 227.0pt;"
+                    valign="top" width="303">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">{{n.subject1}}
+                        </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; height: 23.15pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 62.05pt;"
+                    valign="top" width="83" class="obmarks">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;" >{{n.markObSub1}}
+                        </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; height: 23.15pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 66.2pt;"
+                    valign="top" width="88">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">{{n.maxMarkSub1}}
+                        </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+            </tr>
+            <tr class="tb-row" >
+                <td style="border-top: none; border: solid black 1.0pt; height: 23.2pt; mso-border-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 41.5pt;"
+                    valign="top" width="55">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">2
+                        </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; height: 23.2pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 54.1pt;"
+                    valign="top" width="72">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">{{n.subject2}}
+                        </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; height: 23.2pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 227.0pt;"
+                    valign="top" width="303">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">{{n.subject2}} </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; height: 23.2pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 62.05pt;"
+                    valign="top" width="83" class="obmarks">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">{{n.markObSub2}}
+                        </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; height: 23.2pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 66.2pt;"
+                    valign="top" width="88">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">{{n.maxMarkSub2}}
+                        </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+            </tr>
+            <tr class="tb-row" >
+                <td style="border-top: none; border: solid black 1.0pt; height: 23.2pt; mso-border-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 41.5pt;"
+                    valign="top" width="55">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">3
+                        </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; height: 23.2pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 54.1pt;"
+                    valign="top" width="72">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">{{n.subject3}}
+                        </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; height: 23.2pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 227.0pt;"
+                    valign="top" width="303">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">{{n.subject3}} </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; height: 23.2pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 62.05pt;"
+                    valign="top" width="83" class="obmarks">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">{{n.markObSub3}}
+                        </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; height: 23.2pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 66.2pt;"
+                    valign="top" width="88">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">{{n.maxMarkSub3}}
+                        </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+            </tr>
+            <tr class="tb-row" >
+                <td style="border-top: none; border: solid black 1.0pt; height: 23.15pt; mso-border-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 41.5pt;"
+                    valign="top" width="55">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">4
+                        </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; height: 23.15pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 54.1pt;"
+                    valign="top" width="72">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">{{n.subject4}}
+                        </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; height: 23.15pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 227.0pt;"
+                    valign="top" width="303">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">{{n.subject4}} </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; height: 23.15pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 62.05pt;"
+                    valign="top" width="83" class="obmarks">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;" > {{n.markObSub4}}
+                        </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; height: 23.15pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 66.2pt;"
+                    valign="top" width="88">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">{{n.maxMarkSub4}}
+                        </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+            </tr>
+            <tr class="tb-row" >
+                <td style="border-top: none; border: solid black 1.0pt; height: 23.2pt; mso-border-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 41.5pt;"
+                    valign="top" width="55">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">5
+                        </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; height: 23.2pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 54.1pt;"
+                    valign="top" width="72">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">{{n.subject5}}
+                        </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; height: 23.2pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 227.0pt;"
+                    valign="top" width="303">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">{{n.subject5}} </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; height: 23.2pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 62.05pt;"
+                    valign="top" width="83" class="obmarks">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">{{n.markObSub5}}
+                        </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; height: 23.2pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 66.2pt;"
+                    valign="top" width="88">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">{{n.maxMarkSub5}}
+                        </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+            </tr>
+            <tr class="tb-row">
+                <td style="border-top: none; border: solid black 1.0pt; height: 23.2pt; mso-border-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 41.5pt;"
+                    valign="top" width="55">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">6
+                        </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; height: 23.2pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 54.1pt;"
+                    valign="top" width="72">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">{{n.subject6}}
+                        </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; height: 23.2pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 227.0pt;"
+                    valign="top" width="303">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">{{n.subject6}} </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; height: 23.2pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 62.05pt;"
+                    valign="top" width="83" class="obmarks">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;" >{{n.markObSub6}}
+                        </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; height: 23.2pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 2.05pt 0cm 5.4pt; width: 66.2pt;"
+                    valign="top" width="88">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">{{n.maxMarkSub6}}
+                        </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+
+    <table border="0" align="center" cellpadding="0" cellspacing="0" class="TableGrid" class="table">
+        <tbody>
+            <tr class="tb-row" >
+                <td style="border: solid black 1.0pt; height: 23.2pt; mso-border-alt: solid black .5pt; padding: 2.8pt 5.75pt 0cm 5.4pt; width: 225.4pt;"
+                    valign="top" width="301">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <b style="mso-bidi-font-weight: normal;"><span
+                                style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">Total Marks obtained
+                            </span></b>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td id="totalMarks" style="border-left: none; border: solid black 1.0pt; height: 23.2pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; padding: 2.8pt 5.75pt 0cm 5.4pt; width: 225.4pt;"
+                    valign="top" width="301" >
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;" id="totalMarks">
+                        </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+            </tr>
+            <tr class="tb-row">
+                <td style="border-top: none; border: solid black 1.0pt; height: 23.2pt; mso-border-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 5.75pt 0cm 5.4pt; width: 225.4pt;"
+                    valign="top" width="301">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <b style="mso-bidi-font-weight: normal;"><span
+                                style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">Maximum Marks </span></b>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; height: 23.2pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 5.75pt 0cm 5.4pt; width: 225.4pt;"
+                    valign="top" width="301">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">700
+                        </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+            </tr>
+            <tr class="tb-row" >
+                <td style="border-top: none; border: solid black 1.0pt; height: 23.2pt; mso-border-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 5.75pt 0cm 5.4pt; width: 225.4pt;"
+                    valign="top" width="301">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <b style="mso-bidi-font-weight: normal;"><span
+                                style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">Grade </span></b>
+                        <o:p></o:p>
+                    </p>
+                </td>
+                <td style="border-bottom: solid black 1.0pt; border-left: none; border-right: solid black 1.0pt; border-top: none; height: 23.2pt; mso-border-alt: solid black .5pt; mso-border-left-alt: solid black .5pt; mso-border-top-alt: solid black .5pt; padding: 2.8pt 5.75pt 0cm 5.4pt; width: 225.4pt;"
+                    valign="top" width="301">
+                    <p align="left" class="MsoNormal" style="line-height: normal; margin-right: 0cm; text-align: left;">
+                        <span style="font-size: 12.0pt; mso-bidi-font-size: 11.0pt;">C
+                        </span>
+                        <o:p></o:p>
+                    </p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>&nbsp;</p>
+    
+</body>
+
+</html>

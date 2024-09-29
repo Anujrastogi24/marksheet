@@ -1,0 +1,43 @@
+<html lang="en" dir="ltr">
+
+
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+    <!-- <link rel="stylesheet" href="../style.css"> -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    {% load static %}
+    <link rel = "stylesheet" href="{% static 'main.css' %}">
+    {% if error %}
+    <script>
+    jQuery(document).ready(function($) {
+        window.alert("Please Enter Roll Number
+        Example Search P111-12 to P111-20");
+
+        });
+    </script>
+    {% endif%}
+
+</head>
+
+<body>
+    
+    <div class="wrapper active">
+        <div class="search-btn">
+            <span class="fas fa-search" style="display: none; "></span>
+        </div>
+        <form method="post"> 
+        {% csrf_token %}
+        <div class="search-data" style="display: block;">
+            {{form.as_p}} 
+            <div class="line active"></div>
+            <label style="display: inline;"></label>
+            <button type="submit"><span class="fas fa-search" style="display: inline; backdrop-filter: blur(5px);"></span> </button>
+        </div>
+        
+        </form>
+    </div>
+</body>
+
+</html>
